@@ -1,0 +1,81 @@
+<h1>
+    Job Module Manager
+</h1>
+
+<section id="buttons_section">
+        <button [disabled]="hasProgressBarStarted" (click)="startJob()">Start Job</button>
+        <button [disabled]="isButtonDisabled" (click)="getJobStatus()">Get Job Status</button>
+        <button [disabled]="isButtonDisabled" (click)="getFullJob()">Get job information</button>
+</section>
+
+<section>
+    <table>
+        <tr>
+            <td>
+                Status:
+            </td>
+            <td class="job_info">
+                <!-- Off --> {{job.jobStatus}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Description:
+            </td>
+            <td class="job_info">
+                {{job.jobDescription}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Name: 
+            </td>
+            <td class="job_info">
+                {{job.jobName}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Is enabled:
+            </td>
+            <td class="job_info">
+                {{job.isEnabled}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Steps count:
+            </td>
+            <td class="job_info">
+                {{job.stepsCount}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Current step number:
+            </td>
+            <td class="job_info">
+                {{job.currentStep}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Step name:
+            </td>
+            <td class="job_info">
+                {{job.jobStepName}}
+            </td>
+        </tr>
+    </table>
+</section>
+
+<section id="progress-bar-section">
+    <h2>Job progress</h2>
+        <progress value ="{{job.currentStep}}"  max ="{{job.stepsCount}}"> </progress>
+    <!-- "{{job.currentStep}}" -->
+    <!-- "{{job.stepsCount}}" -->
+</section>
+
+<section style="text-align: left">
+    <button onclick="window.location.href = 'http://localhost:50581';">Get back to the portal</button>
+</section>

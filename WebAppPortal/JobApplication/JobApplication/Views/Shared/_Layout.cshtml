@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <base href="/" />
+</head>
+<body>
+    @RenderBody()
+
+    <script src="~/JobAngularModule/dist/JobAngularModule/runtime-es2015.js" type="module"></script>
+    <script src="~/JobAngularModule/dist/JobAngularModule/polyfills-es2015.js" type="module"></script>
+    <script src="~/JobAngularModule/dist/JobAngularModule/runtime-es5.js" nomodule></script>
+    <script src="~/JobAngularModule/dist/JobAngularModule/polyfills-es5.js" nomodule></script>
+    <script src="~/JobAngularModule/dist/JobAngularModule/styles-es2015.js" type="module"></script>
+    <script src="~/JobAngularModule/dist/JobAngularModule/styles-es5.js" nomodule></script>
+    <script src="~/JobAngularModule/dist/JobAngularModule/vendor-es2015.js" type="module"></script>
+    <script src="~/JobAngularModule/dist/JobAngularModule/main-es2015.js" type="module"></script>
+    <script src="~/JobAngularModule/dist/JobAngularModule/vendor-es5.js" nomodule></script>
+    <script src="~/JobAngularModule/dist/JobAngularModule/main-es5.js" nomodule></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
