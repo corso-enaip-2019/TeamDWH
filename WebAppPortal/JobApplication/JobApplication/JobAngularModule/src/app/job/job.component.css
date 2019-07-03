@@ -1,19 +1,22 @@
 h1{
     text-align: center;
-    border: 3px solid black;
-    border-color: black;
     font-style: inherit;
     padding: 10px 0;
     margin: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-bottom: 3px solid white;
+    color: white;
 }
 
 h2{
     margin: 10px 250px;
     text-align: center;
-    border: 2px solid black;
-    border-color: black;
+    border: 2px solid white;
+    border-color: white;
     font-style: normal;
     padding: 5px 0px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
 }
 
 section{
@@ -26,10 +29,12 @@ section{
 
 table{
     border-collapse: collapse;
-    width: 100%;
+    width: 90%;
+    color: white;
+    margin: 0 5%;
 }
 table, tr, td {
-    border: 1px solid black;
+    border: 1px solid white;
     font-style: verdana;
 }
 
@@ -38,7 +43,7 @@ td, tr{
 }
 
 tr:hover{
-    background-color: #f5f5f5;
+    background-color: darkgrey;
 }
 
 .job_info{
@@ -48,9 +53,9 @@ tr:hover{
 
 
 button{
-    background-color: white;
-    border: 1px #555555 solid;
-    color: black;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px white solid;
+    color: white;
     font-size: 20px;
     padding: 12px 40px;
     width: 300px;
@@ -58,8 +63,8 @@ button{
 }
 
 button:hover{
-    background-color: #555555;
-    color: white;
+    background-color: white;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 button:focus{
@@ -71,7 +76,6 @@ button:disabled{
     cursor: not-allowed;
 }
 
-
 #progress-bar-section{
     text-align: center;
 }
@@ -80,8 +84,8 @@ progress{
     -webkit-appearance: none;
     appearance: none;
 
-    width: 600px;
-    height: 20px;
+    width: 800px;
+    height: 30px;
     padding: auto;
 }
 
