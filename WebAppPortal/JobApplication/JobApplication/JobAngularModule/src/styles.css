@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgb(230, 230, 230);
     margin: 0;
+    /* font-family: 'DM Sans', sans-serif; */
+    font-family: 'Gentium Book Basic', serif;
 }

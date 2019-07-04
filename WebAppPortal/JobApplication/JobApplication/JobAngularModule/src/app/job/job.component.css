@@ -1,22 +1,21 @@
 h1{
-    text-align: center;
-    font-style: inherit;
-    padding: 10px 0;
+    padding: 10px 100px 10px 0px;
     margin: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-bottom: 3px solid white;
+    background-color: rgb(27, 48, 141);
+    border-bottom: 3px solid #5b8eff;
     color: white;
+    text-align: center;
 }
 
 h2{
-    margin: 10px 250px;
+    margin: 10px 500px;
+    border-radius: 10px;
     text-align: center;
-    border: 2px solid white;
-    border-color: white;
-    font-style: normal;
+    border: 1.5px solid #5b8eff;
     padding: 5px 0px;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgb(27, 48, 141);
     color: white;
+    font-weight: normal;
 }
 
 section{
@@ -29,21 +28,23 @@ section{
 
 table{
     border-collapse: collapse;
-    width: 90%;
-    color: white;
-    margin: 0 5%;
+    width: 80%;
+    color: black;
+    margin: 0 10%;
+    background-color: rgb(241, 241, 241);
 }
 table, tr, td {
-    border: 1px solid white;
-    font-style: verdana;
+    border: 1px solid black;
+    font-size: 20px;
 }
 
 td, tr{
     padding: 10px;
+    width: 50%;
 }
 
 tr:hover{
-    background-color: darkgrey;
+    background-color: rgb(214, 214, 214);
 }
 
 .job_info{
@@ -53,18 +54,19 @@ tr:hover{
 
 
 button{
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 1px white solid;
+    background-color:  rgb(27, 48, 141);
+    border: 1px black solid;
     color: white;
     font-size: 20px;
     padding: 12px 40px;
     width: 300px;
     transition-duration: 0.4s;
+    font-family: 'Gentium Book Basic', serif;
 }
 
 button:hover{
-    background-color: white;
-    color: rgba(0, 0, 0, 0.7);
+    background-color: rgb(0, 146, 188);
+    color: rgb(233, 237, 255);
 }
 
 button:focus{
@@ -107,4 +109,12 @@ progress::-webkit-progress-value{
 
     border-radius: 5px; 
     background-size: 35px 10px, 100% 100%, 100% 100%;
+}
+
+#logoEuris{
+    width: 100px;
+    height: 40px;
+    float:left;
+    margin-top: 10px;
+    margin-left: 10px;
 }

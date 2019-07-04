@@ -55,7 +55,7 @@ namespace JobApplication.Controllers
             {
                 Name = "Job",
                 FullName = "Job Module Manager",
-                Description = "Module written to manage the already existing Job in the database"
+                Description = "This module manage the starting of the Job and let you know the progress of it"
             };
         }
     }

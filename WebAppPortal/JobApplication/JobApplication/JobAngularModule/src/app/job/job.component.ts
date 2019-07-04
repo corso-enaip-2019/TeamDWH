@@ -11,6 +11,8 @@ import { IJobModel } from '../models/job.model';
 @Injectable()
 export class JobComponent {
 
+  logoEuris: string = "/JobAngularModule/src/assets/gruppo_euris.jpeg"
+
   private job: IJobModel;
 
   private interval;
