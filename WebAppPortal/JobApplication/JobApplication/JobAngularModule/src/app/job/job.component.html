@@ -8,7 +8,7 @@
 <section id="buttons_section">
         <button [disabled]="hasProgressBarStarted" (click)="startJob()">Start Job</button>
         <button [disabled]="isButtonDisabled" (click)="getJobStatus()">Get Job Status</button>
-        <button [disabled]="isButtonDisabled" (click)="getFullJob()">Get job information</button>
+        <button [disabled]="hasProgressBarStarted" (click)="getFullJob()">Get job information</button>
 </section>
 
 <section>
@@ -18,7 +18,8 @@
                 Status:
             </td>
             <td class="job_info">
-                <!-- Off --> {{job.jobStatus}}
+                {{job.jobStatus}}
+                asdffasdfasdf
             </td>
         </tr>
         <tr>

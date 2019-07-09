@@ -36,11 +36,14 @@ table{
 table, tr, td {
     border: 1px solid black;
     font-size: 20px;
+    table-layout: fixed;
 }
 
 td, tr{
     padding: 10px;
-    width: 50%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 40%;
 }
 
 tr:hover{
@@ -49,7 +52,6 @@ tr:hover{
 
 .job_info{
     text-align: center;
-    width: 400px;
 }
 
 
@@ -105,7 +107,7 @@ progress::-webkit-progress-value{
 	   -webkit-linear-gradient(top, 
 	                           rgba(255, 255, 255, .25), 
 	                           rgba(0, 0, 0, .25)),
-	   -webkit-linear-gradient(left, black, white);
+	   -webkit-linear-gradient(left, rgb(4, 0, 255), rgb(135, 133, 255));
 
     border-radius: 5px; 
     background-size: 35px 10px, 100% 100%, 100% 100%;

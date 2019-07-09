@@ -51,19 +51,19 @@ export class JobComponent {
     });
   }
 
+  public startProgressBar(): void {
+    if(this.hasProgressBarStarted === false){
+      this.getFullJob();
+      this.interval = setInterval(() => this.updateProgressBar(), 5000);
+      this.hasProgressBarStarted = true;
+    }
+  }
+
   public getFullJob(): void {
     var self: JobComponent = this;
     this.data.getFullJob(function (items: IJobModel): void {
       self.job = items;
     });
-  }
-
-  public startProgressBar(): void {
-    if(this.hasProgressBarStarted === false){
-      this.getFullJob();
-      this.interval = setInterval(() => this.updateProgressBar(), 1000);
-      this.hasProgressBarStarted = true;
-    }
   }
 
   public updateProgressBar(): void {

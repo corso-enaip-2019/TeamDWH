@@ -1,30 +1,33 @@
 ﻿using JobApplication.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.SqlServer;
-using Microsoft.SqlServer.Management.Smo.Agent;
 using Microsoft.SqlServer.Management.Smo;
+using Microsoft.SqlServer.Management.Common;
+using Microsoft.SqlServer.Management.Smo.Agent;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Data;
+using System;
 
 namespace JobApplication.DataAccess
 {
     public class JobManager : IJobModel
     {
+        public Server server { get; private set; }
+        public Job job { get; private set; }
+
+        static readonly string SqlServer = "localhost";
+        private readonly string jobStringForServer = "JobForTest";
+
+
         public string jobStatus { get; private set; }
 
         public string jobDescription { get; private set; }
         public string jobName { get; private set; }
         public bool isEnabled { get; private set; }
         public int stepsCount { get; private set; }
-        public int currentStep { get; private set; }
+        public int currentStep { get; private set; } = 0;
         public string jobStepName { get; private set; }
 
 
-        //static JobManager()
-        //{
-        //    Instance = new JobManager();
-        //}
 
         private static JobManager instance;
         public static JobManager Instance
@@ -38,16 +41,18 @@ namespace JobApplication.DataAccess
             }
         }
 
-        private JobManager() { }
+        private JobManager()
+        {
+            server = new Server(SqlServer);
+            job = server.JobServer.Jobs[jobStringForServer];
+        }
 
-        private Server server = new Server("");
-        private string jobStringForServer = "";
-        
+
 
         public bool StartJob()
-        { 
-            server.JobServer.Jobs[jobStringForServer].Start();
-            return true;
+        {
+            job.Start();
+            return server.JobServer.Jobs[jobStringForServer].IsEnabled;
         }
 
         public void SetJobStatus()
@@ -60,28 +65,33 @@ namespace JobApplication.DataAccess
             // Suspended	5	
             // WaitingForStepToFinish	6	
             // WaitingForWorkerThread	2
-
-            this.jobStatus = server.JobServer.Jobs[jobStringForServer].CurrentRunStatus.ToString();
+            this.jobStatus = job.CurrentRunStatus.ToString();
         }
 
         public void SetJobInformation()
         {
-            var job = server.JobServer.Jobs[jobStringForServer];
-            this.jobDescription = job.Description; // = job.Description;
-            this.jobName = job.Name; // = job.Name;
-            this.isEnabled = job.IsEnabled; // = job.isEnabled;
-            this.stepsCount = job.JobSteps.Count; // = job.JobSteps.Count;
-            this.currentStep = job.JobSteps[0].OnSuccessStep;
-            this.jobStepName = job.CurrentRunStep; // = job.CurrentStepName;
-            
+            job.Refresh();
+            this.jobStatus = job.CurrentRunStatus.ToString();
+            this.jobDescription = job.Description;
+            this.jobName = job.Name;
+            this.isEnabled = job.IsEnabled;
+            this.stepsCount = job.JobSteps.Count;
+            this.currentStep = job.StartStepID-1;
+            this.jobStepName = job.JobSteps[this.currentStep].Name;
+
         }
 
         public void SetCurrentStep()
         {
+            job.Refresh();
+            if (int.TryParse(job.CurrentRunStep.Substring(0, 1), out int a))
+                if (this.currentStep != a)
+                {
+                    this.currentStep++;
+                    this.jobStepName = server.JobServer.Jobs[jobStringForServer].JobSteps[this.currentStep].Name;
+                }
 
-            if (server.JobServer.Jobs[jobStringForServer].JobSteps[this.currentStep].OnSuccessStep < this.stepsCount)
-                this.currentStep++; // = jobStep.OnSuccessStep;
+            jobStatus = job.CurrentRunStatus.ToString();
         }
-
     }
 }
