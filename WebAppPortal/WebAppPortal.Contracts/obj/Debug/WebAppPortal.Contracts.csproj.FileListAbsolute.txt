@@ -36,3 +36,16 @@ C:\Users\stage\TeamDWH\WebAppPortal\WebAppPortal.Contracts\obj\Debug\WebAppPorta
 C:\Users\stage\TeamDWH\WebAppPortal\WebAppPortal.Contracts\obj\Debug\WebAppPortal.Contracts.csproj.CopyComplete
 C:\Users\stage\TeamDWH\WebAppPortal\WebAppPortal.Contracts\obj\Debug\WebAppPortal.Contracts.dll
 C:\Users\stage\TeamDWH\WebAppPortal\WebAppPortal.Contracts\obj\Debug\WebAppPortal.Contracts.pdb
+C:\Users\stage\Documents\GitHub\TeamDWH\WebAppPortal\WebAppPortal.Contracts\bin\Debug\WebAppPortal.Contracts.dll
+C:\Users\stage\Documents\GitHub\TeamDWH\WebAppPortal\WebAppPortal.Contracts\bin\Debug\WebAppPortal.Contracts.pdb
+C:\Users\stage\Documents\GitHub\TeamDWH\WebAppPortal\WebAppPortal.Contracts\bin\Debug\Newtonsoft.Json.dll
+C:\Users\stage\Documents\GitHub\TeamDWH\WebAppPortal\WebAppPortal.Contracts\bin\Debug\System.Web.Http.dll
+C:\Users\stage\Documents\GitHub\TeamDWH\WebAppPortal\WebAppPortal.Contracts\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\stage\Documents\GitHub\TeamDWH\WebAppPortal\WebAppPortal.Contracts\bin\Debug\Newtonsoft.Json.xml
+C:\Users\stage\Documents\GitHub\TeamDWH\WebAppPortal\WebAppPortal.Contracts\bin\Debug\System.Web.Http.xml
+C:\Users\stage\Documents\GitHub\TeamDWH\WebAppPortal\WebAppPortal.Contracts\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\stage\Documents\GitHub\TeamDWH\WebAppPortal\WebAppPortal.Contracts\obj\Debug\WebAppPortal.Contracts.csprojAssemblyReference.cache
+C:\Users\stage\Documents\GitHub\TeamDWH\WebAppPortal\WebAppPortal.Contracts\obj\Debug\WebAppPortal.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\stage\Documents\GitHub\TeamDWH\WebAppPortal\WebAppPortal.Contracts\obj\Debug\WebAppPortal.Contracts.csproj.CopyComplete
+C:\Users\stage\Documents\GitHub\TeamDWH\WebAppPortal\WebAppPortal.Contracts\obj\Debug\WebAppPortal.Contracts.dll
+C:\Users\stage\Documents\GitHub\TeamDWH\WebAppPortal\WebAppPortal.Contracts\obj\Debug\WebAppPortal.Contracts.pdb
