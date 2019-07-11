@@ -20,6 +20,7 @@ export class JobComponent {
   private hasJobStarted: boolean;
 
   private isButtonStatusDisabled: boolean;
+
   private hasProgressBarStarted: boolean;
 
   private barValue: number;
@@ -44,7 +45,6 @@ export class JobComponent {
         self.hasProgressBarStarted = true;
       }
     });
-
   }
 
   public getJobStatus(): void {

@@ -14,9 +14,7 @@ export class JobService {
       data => {
         callback(data);
       },
-      error => {
-
-      }
+      error => {}
     );
   }
 
@@ -26,9 +24,7 @@ export class JobService {
       data => {
         callback(data);
       },
-      error => {
-
-      }
+      error => {}
     );
   }
 
@@ -38,23 +34,9 @@ export class JobService {
         data => {
           callback(data);
         },
-        error => {
-
-        }
+        error => {}
       );
   }
-
-  // public getJobCurrentStep (callback: (items: IJobModel) => void): void {
-  //   var item = this.http.get<IJobModel>(JobConfig.apiDefaultUri + "/api/getCurrentStep")
-  //     .subscribe(
-  //       data => {
-  //         callback(data);
-  //       },
-  //       error => {
-
-  //       }
-  //     );
-  // }
 
   public getJob() : IJobModel {
     return {

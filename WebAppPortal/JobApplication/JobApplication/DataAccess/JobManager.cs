@@ -11,15 +11,7 @@ namespace JobApplication.DataAccess
 {
     public class JobManager : IJobModel
     {
-        public Server server { get; private set; }
-        public Job job { get; private set; }
-
-        static readonly string SqlServer = "localhost";
-        private readonly string jobStringForServer = "JobForTest";
-
-
         public string jobStatus { get; private set; }
-
         public string jobDescription { get; private set; }
         public string jobName { get; private set; }
         public bool isEnabled { get; private set; }
@@ -27,14 +19,17 @@ namespace JobApplication.DataAccess
         public int currentStep { get; private set; } = 0;
         public string jobStepName { get; private set; }
 
-        
+        public Server server { get; private set; }
+        public Job job { get; private set; }
+
+        static readonly string SqlServer = "localhost";
+        private readonly string jobStringForServer = "JobForTest";
 
         public JobManager()
         { 
             server = new Server(SqlServer);
             job = server.JobServer.Jobs[jobStringForServer];
         }
-        
 
         public bool StartJob()
         {
