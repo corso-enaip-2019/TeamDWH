@@ -9,14 +9,15 @@ namespace JobApplication.Controllers
     [RoutePrefix("api")]
     public class JobController : ApiController, IModule
     {
-        // non funziona JobManager.Instance.StartJob();
+        JobManager jobManager; 
 
         [HttpGet]
         [Route("startJob")]
         [Authorize(Roles = "tutor")]
         public bool StartJob()
         {
-            return JobManager.Instance.StartJob();
+            jobManager = new JobManager();
+            return jobManager.StartJob();
         }
 
         [HttpGet]
@@ -24,8 +25,9 @@ namespace JobApplication.Controllers
         [Authorize]
         public string GetJobStatus()
         {
-            JobManager.Instance.SetJobStatus();
-            return JobManager.Instance.jobStatus;
+            jobManager = new JobManager();
+            jobManager.SetJobInformation();
+            return jobManager.jobStatus;
         }
 
         [HttpGet]
@@ -33,17 +35,9 @@ namespace JobApplication.Controllers
         [Authorize]
         public JobManager GetFullJob()
         {
-            JobManager.Instance.SetJobInformation();
-            return JobManager.Instance;
-        }
-
-        [HttpGet]
-        [Route("getCurrentStep")]
-        [Authorize]
-        public int GetCurrentStep()
-        {
-            JobManager.Instance.SetCurrentStep();
-            return JobManager.Instance.currentStep;
+            jobManager = new JobManager();
+            jobManager.SetJobInformation();
+            return jobManager;
         }
 
         [HttpGet]

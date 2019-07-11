@@ -7,7 +7,7 @@
 
 <section id="buttons_section">
         <button [disabled]="hasProgressBarStarted" (click)="startJob()">Start Job</button>
-        <button [disabled]="isButtonDisabled" (click)="getJobStatus()">Get Job Status</button>
+        <button [disabled]="isButtonStatusDisabled" (click)="getJobStatus()">Get Job Status</button>
         <button [disabled]="hasProgressBarStarted" (click)="getFullJob()">Get job information</button>
 </section>
 
@@ -19,7 +19,6 @@
             </td>
             <td class="job_info">
                 {{job.jobStatus}}
-                asdffasdfasdf
             </td>
         </tr>
         <tr>
@@ -75,9 +74,7 @@
 
 <section id="progress-bar-section">
     <h2>Job step progress</h2>
-        <progress value ="{{job.currentStep}}"  max ="{{job.stepsCount}}"> </progress>
-    <!-- "{{job.currentStep}}" -->
-    <!-- "{{job.stepsCount}}" -->
+        <progress value ="{{barValue}}"  max ="{{job.stepsCount}}"> </progress>
 </section>
 
 <section style="text-align: left; margin-left: 30px">

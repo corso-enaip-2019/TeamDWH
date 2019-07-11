@@ -27,45 +27,20 @@ namespace JobApplication.DataAccess
         public int currentStep { get; private set; } = 0;
         public string jobStepName { get; private set; }
 
+        
 
-
-        private static JobManager instance;
-        public static JobManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                    instance = new JobManager();
-
-                return instance;
-            }
-        }
-
-        private JobManager()
-        {
+        public JobManager()
+        { 
             server = new Server(SqlServer);
             job = server.JobServer.Jobs[jobStringForServer];
         }
-
-
+        
 
         public bool StartJob()
         {
             job.Start();
+            job.Refresh();
             return server.JobServer.Jobs[jobStringForServer].IsEnabled;
-        }
-
-        public void SetJobStatus()
-        {
-            //enum property: 
-            // BetweenRetries	3	
-            // Executing	1	
-            // Idle	4	
-            // PerformingCompletionAction	7	
-            // Suspended	5	
-            // WaitingForStepToFinish	6	
-            // WaitingForWorkerThread	2
-            this.jobStatus = job.CurrentRunStatus.ToString();
         }
 
         public void SetJobInformation()
@@ -76,22 +51,9 @@ namespace JobApplication.DataAccess
             this.jobName = job.Name;
             this.isEnabled = job.IsEnabled;
             this.stepsCount = job.JobSteps.Count;
-            this.currentStep = job.StartStepID-1;
-            this.jobStepName = job.JobSteps[this.currentStep].Name;
-
-        }
-
-        public void SetCurrentStep()
-        {
-            job.Refresh();
-            if (int.TryParse(job.CurrentRunStep.Substring(0, 1), out int a))
-                if (this.currentStep != a)
-                {
-                    this.currentStep++;
-                    this.jobStepName = server.JobServer.Jobs[jobStringForServer].JobSteps[this.currentStep].Name;
-                }
-
-            jobStatus = job.CurrentRunStatus.ToString();
+            this.currentStep = int.Parse(job.CurrentRunStep.Substring(0, this.stepsCount.ToString().Length));
+            if (this.currentStep != 0 && this.currentStep <= job.JobSteps.Count)
+                this.jobStepName = job.JobSteps[this.currentStep-1].Name;
         }
     }
 }

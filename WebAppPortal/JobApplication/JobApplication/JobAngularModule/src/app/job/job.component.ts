@@ -19,12 +19,14 @@ export class JobComponent {
 
   private hasJobStarted: boolean;
 
-  private isButtonDisabled: boolean;
+  private isButtonStatusDisabled: boolean;
   private hasProgressBarStarted: boolean;
+
+  private barValue: number;
 
   constructor(private data: JobService) {
     this.job = this.data.getJob();
-    this.isButtonDisabled = true;
+    this.isButtonStatusDisabled = true;
     this.hasJobStarted = false;
     this.hasProgressBarStarted = false;
   }
@@ -35,10 +37,11 @@ export class JobComponent {
       self.hasJobStarted = items;
       if(self.hasJobStarted === true){
         self.startProgressBar();
-        self.isButtonDisabled = false;
+        self.isButtonStatusDisabled = false;
       }
       else{
-        alert("Job couldn't start");
+        alert("The job is disabled");
+        self.hasProgressBarStarted = true;
       }
     });
 
@@ -49,12 +52,18 @@ export class JobComponent {
     this.data.getJobStatus(function (items: string): void {
       self.job.jobStatus = items;
     });
+    if(this.job.jobStatus == "Idle" && this.job.currentStep >= this.job.stepsCount){
+      this.barValue = this.job.currentStep;
+      clearInterval(this.interval);
+      this.hasProgressBarStarted = false;
+      this.isButtonStatusDisabled = true;
+    }
   }
 
   public startProgressBar(): void {
     if(this.hasProgressBarStarted === false){
       this.getFullJob();
-      this.interval = setInterval(() => this.updateProgressBar(), 5000);
+      this.interval = setInterval(() => this.updateProgressBar(), 100);
       this.hasProgressBarStarted = true;
     }
   }
@@ -63,14 +72,24 @@ export class JobComponent {
     var self: JobComponent = this;
     this.data.getFullJob(function (items: IJobModel): void {
       self.job = items;
+      self.barValue = items.currentStep;
     });
   }
 
   public updateProgressBar(): void {
-    var self: JobComponent = this;
-    this.data.getJobCurrentStep(function (items: number): void {
-      self.job.currentStep = items;
-    });
+    if(this.job.currentStep < this.job.stepsCount){
+      var self: JobComponent = this;
+      this.data.getFullJob(function (items: IJobModel): void {
+        self.job.jobStatus = items.jobStatus;
+        self.job.currentStep = items.currentStep;
+        self.job.jobStepName = items.jobStepName;
+        self.barValue = items.currentStep - 1;
+      });
+    }
+    else{
+      clearInterval(this.interval);
+      this.interval = setInterval(() => this.getJobStatus(), 100);
+    }
   }
 
 }

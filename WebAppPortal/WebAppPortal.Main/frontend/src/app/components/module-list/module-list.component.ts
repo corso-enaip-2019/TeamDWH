@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataService } from 'src/app/services/data-service';
 import { IModuleInfo } from 'src/app/models/imoduleinfo'
 
@@ -7,7 +7,7 @@ import { IModuleInfo } from 'src/app/models/imoduleinfo'
   templateUrl: './module-list.component.html',
   styleUrls: ['./module-list.component.css']
 })
-export class ModuleList implements OnInit {
+export class ModuleList {
   public list: Array<IModuleInfo>;
   public currentUser: string;
 
@@ -22,17 +22,4 @@ export class ModuleList implements OnInit {
         self.currentUser = username;
     });
   }
-
-  ngOnInit() {
-    let win = (window as any);
-      if(win.location.search !== '?loaded' ) {
-          
-          setTimeout(() => {
-            window.location.reload();
-            win.location.search = '?loaded';
-          }, 10000); // Activate after 10 second.
-          
-      }
-  }
-
 }
