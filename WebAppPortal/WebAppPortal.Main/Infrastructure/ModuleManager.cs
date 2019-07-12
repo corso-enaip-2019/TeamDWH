@@ -30,7 +30,7 @@ namespace WebAppPortal.Main.Infrastructure
             Modules = new List<ModuleStatusModel>();
             _updater = new Timer
             {
-                Interval = 60000, 
+                Interval = 1000, 
                 AutoReset = true
             };
             _updater.Elapsed += (s, e) => UpdateStatuses();
