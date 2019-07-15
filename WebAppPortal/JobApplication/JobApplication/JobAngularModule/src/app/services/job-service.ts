@@ -44,18 +44,6 @@ export class JobService {
       );
   }
 
-  // public getJobCurrentStep (callback: (items: IJobModel) => void): void {
-  //   var item = this.http.get<IJobModel>(JobConfig.apiDefaultUri + "/api/getCurrentStep")
-  //     .subscribe(
-  //       data => {
-  //         callback(data);
-  //       },
-  //       error => {
-
-  //       }
-  //     );
-  // }
-
   public getJob() : IJobModel {
     return {
       jobStatus: "Not started",
