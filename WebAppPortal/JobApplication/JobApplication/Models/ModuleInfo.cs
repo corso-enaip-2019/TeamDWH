@@ -23,6 +23,5 @@ namespace JobApplication.Models
         [DataMember]
         [Required]
         public string Description { get; set; }
-
     }
 }

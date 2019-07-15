@@ -23,7 +23,7 @@ namespace JobApplication.DataAccess
         public Job job { get; private set; }
 
         static readonly string SqlServer = "localhost";
-        private readonly string jobStringForServer = "JobForTest";
+        private readonly string jobStringForServer = "JobTest";
 
         public JobManager()
         { 
@@ -33,8 +33,13 @@ namespace JobApplication.DataAccess
 
         public bool StartJob()
         {
-            job.Start();
+            SetJobInformation();
             job.Refresh();
+            if (currentStep == 0)
+            {
+                job.Start();
+            }
+            
             return server.JobServer.Jobs[jobStringForServer].IsEnabled;
         }
 

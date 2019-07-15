@@ -10,7 +10,5 @@ namespace JobApplication.Models
         bool isEnabled { get; }
         int stepsCount { get; }
         int currentStep { get; }
-        string jobStepName { get; }
-        
-    }
+        string jobStepName { get; }    }
 }

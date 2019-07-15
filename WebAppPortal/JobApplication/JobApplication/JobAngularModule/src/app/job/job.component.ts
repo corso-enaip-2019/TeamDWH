@@ -19,15 +19,12 @@ export class JobComponent {
 
   private hasJobStarted: boolean;
 
-  private isButtonStatusDisabled: boolean;
-
   private hasProgressBarStarted: boolean;
 
   private barValue: number;
 
   constructor(private data: JobService) {
     this.job = this.data.getJob();
-    this.isButtonStatusDisabled = true;
     this.hasJobStarted = false;
     this.hasProgressBarStarted = false;
   }
@@ -38,10 +35,8 @@ export class JobComponent {
       self.hasJobStarted = items;
       if(self.hasJobStarted === true){
         self.startProgressBar();
-        self.isButtonStatusDisabled = false;
       }
       else{
-        alert("The job is disabled");
         self.hasProgressBarStarted = true;
       }
     });
@@ -56,7 +51,6 @@ export class JobComponent {
       this.barValue = this.job.currentStep;
       clearInterval(this.interval);
       this.hasProgressBarStarted = false;
-      this.isButtonStatusDisabled = true;
     }
   }
 
@@ -91,5 +85,4 @@ export class JobComponent {
       this.interval = setInterval(() => this.getJobStatus(), 100);
     }
   }
-
 }
