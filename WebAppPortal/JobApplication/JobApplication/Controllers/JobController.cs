@@ -3,6 +3,7 @@ using JobApplication.Models;
 using System;
 using System.Diagnostics;
 using System.Web.Http;
+using WebAppPortal.Contracts;
 
 namespace JobApplication.Controllers
 {
