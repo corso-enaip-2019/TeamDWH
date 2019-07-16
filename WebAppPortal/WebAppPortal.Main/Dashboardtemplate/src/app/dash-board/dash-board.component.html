@@ -1,0 +1,54 @@
+<div class="container"> 
+  <h2>Moduli:</h2>
+  <div class="row">
+      
+    <div *ngFor = "let module of list">
+      <div *ngIf = "module.IsAlive"> 
+        <br>
+
+        <div class="col-sm">
+          <a href="{{module.Url}}">
+
+            <div class="flip-card">
+
+              <div class="flip-card-inner border">
+
+                <div class="flip-card-front">
+
+                  <h2 class="description">{{module.FullName}}</h2>
+                </div>
+
+                <div class="flip-card-back">
+                  <h3 class="description">Descrizione:</h3> 
+                      {{module.Description}}
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngFor = "let module of list">
+      <div *ngIf = "!module.IsAlive">
+        <br>
+        
+        <div class="col-sm">
+          <a>
+          <div class="card">
+            <h3>{{module.Name}} not found</h3> 
+            {{module.Url}}
+            {{module.ErrorMessage}}
+          </div>
+          </a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>

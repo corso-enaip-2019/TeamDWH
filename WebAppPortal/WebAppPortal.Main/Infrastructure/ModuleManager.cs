@@ -14,6 +14,7 @@ namespace WebAppPortal.Main.Infrastructure
 {
     public class ModuleManager
     {
+
         public List<ModuleStatusModel> Modules;
 
         private Timer _updater;
@@ -65,7 +66,6 @@ namespace WebAppPortal.Main.Infrastructure
             var response = await client.GetAsync(moduleUrl + "api/getinfo");
 
             var responseString = await response.Content.ReadAsStringAsync();
-
             if (!response.IsSuccessStatusCode)
                 throw new Exception($"{response.StatusCode}: {responseString}");
 
